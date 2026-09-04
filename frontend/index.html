@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Manager Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div>
+
+                <div class="logo">
+                    <i class="fa-solid fa-cloud"></i>
+                    MediaVault
+                </div>
+
+                <nav>
+
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Overview
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-folder-open"></i>
+                        All Media
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-image"></i>
+                        Images
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-video"></i>
+                        Videos
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-file"></i>
+                        Documents
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="storage-box">
+
+                <div class="storage-header">
+                    <span>Storage Used</span>
+                    <span id="storagePercent">0%</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill" id="storageBar"></div>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+
+            <!-- Header -->
+
+            <header class="topbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" placeholder="Search files...">
+
+                </div>
+
+                <div class="top-actions">
+                    <input type="file" id="fileInput" hidden />
+
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        <i class="fa-solid fa-upload"></i>
+                        Upload New
+                    </button>
+
+                    <div class="icon-btn">
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+
+                    <div class="avatar">
+                        HD
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Stats -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Files</p>
+                    <h2 id="totalFiles">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Size</p>
+                    <h2 id="totalSize">0 MB</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Images</p>
+                    <h2 id="imageCount">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Videos</p>
+                    <h2 id="videoCount">0</h2>
+                </div>
+
+            </section>
+
+            <!-- Content -->
+
+            <section class="content-layout">
+
+                <!-- Media -->
+
+                <div class="media-section">
+
+                    <div class="section-title">
+
+                        <h2>Media Library</h2>
+
+                        <select>
+                            <option>Filter By</option>
+                            <option>Images</option>
+                            <option>Videos</option>
+                            <option>Documents</option>
+                        </select>
+
+                    </div>
+
+                    <div class="media-grid" id="mediaGrid">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div id="toast"></div>
+
+    <<div id="uploadModal" class="upload-modal">
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+
+            <h2>Uploading File</h2>
+
+            <p id="uploadFileName">
+                Waiting...
+            </p>
+
+            <div class="progress-container">
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill" id="progressFill">
+                    </div>
+
+                </div>
+
+                <span id="progressPercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="upload-details">
+
+                <div class="upload-details">
+
+                    <span id="uploadSpeed">
+                        0 MB/s
+                    </span>
+
+                    <span id="uploadETA">
+                        Calculating...
+                    </span>
+
+                </div>
+
+                <div class="upload-size">
+                    <div class="upload-actions">
+
+                        <button id="cancelUploadBtn">
+                            Cancel Upload
+                        </button>
+
+                    </div>
+
+                    <span id="uploadedSize">
+                        0 MB / 0 MB
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+	<script src="/config.js"></script>
+        <script src="script.js"></script>
+
+</body>
+
+</html>
